@@ -17,8 +17,13 @@ import managerRouter from "./routes/manager.js";
 
 import auth from "./middleware/authorization.js";
 
+const corsOptions = {
+  origin: process.env.CLIENT_URL,
+  credentials: true,
+};
+
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 
 app.get("/", (req, res) => {
   res.send("API Spining!");
