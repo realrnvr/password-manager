@@ -26,6 +26,14 @@ app.use(cors(corsOptions));
 
 app.use(express.json());
 
+app.options(
+  "*",
+  cors({
+    origin: process.env.CLIENT_URL,
+    credentials: true,
+  })
+);
+
 app.get("/", (req, res) => {
   res.send("API Spining!");
 });
