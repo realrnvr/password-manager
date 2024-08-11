@@ -1,0 +1,137 @@
+.create__form {
+  max-width: 450px;
+  margin-inline: auto;
+  margin-top: 2rem;
+}
+
+.create__header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.create__left-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.create__close-btn {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0.3rem;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.create__close-btn:hover {
+  background-color: var(--clr-home-pg);
+}
+
+.create__close-icon {
+  width: 30px;
+}
+
+.create__close-btn:hover .create__close-icon {
+  filter: invert(100%);
+}
+
+.create__title {
+  font-size: var(--fs-400);
+  font-weight: var(--fw-500);
+}
+
+.create__btn {
+  font-size: var(--fs-350);
+  font-weight: var(--fw-300);
+  border: 0;
+  padding: 0.5rem;
+  line-height: 0.9;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.create__btn:disabled {
+  background-color: var(--clr-btn-disable);
+  cursor: not-allowed;
+}
+
+.create__input-container {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.create__input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.create__input {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border: 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font-size: var(--fs-300);
+  font-weight: var(--fw-400);
+  outline: 0;
+}
+
+.create__input--pd-r {
+  padding-right: 4rem;
+}
+
+.create__input-btn-wrapper {
+  position: relative;
+}
+
+.create__key-btn {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 5%;
+  transition: background-color 0.3s;
+  padding: 0.15rem;
+  border-radius: 50%;
+}
+
+.create__key-btn:hover {
+  background-color: var(--clr-body-bg);
+}
+
+.create__key-icon {
+  width: 25px;
+}
+
+.create__text-area {
+  resize: none;
+  padding: 1rem;
+  border: 0;
+  font-size: var(--fs-300);
+  font-weight: var(--fw-400);
+  line-height: 0.9;
+  height: 100px;
+  border-radius: 10px 10px 0 0;
+}
+
+.create__text-area::-webkit-scrollbar {
+  display: none;
+}
+
+.create__error-msg-container {
+  margin-top: 1rem;
+}
+
+.create__error-msg {
+  font-size: var(--fs-300);
+  font-weight: var(--fw-400);
+  color: var(--clr-error-msg);
+  text-align: center;
+}

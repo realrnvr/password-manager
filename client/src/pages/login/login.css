@@ -1,0 +1,236 @@
+.login {
+  max-width: 450px;
+}
+
+.login__header {
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.login__header-link {
+  color: var(--clr-link);
+}
+
+.login__header-title {
+  font-size: var(--fs-450);
+  font-weight: var(--fw-300);
+}
+
+.login__header-img {
+  width: 24px;
+}
+
+.login__header-btn {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  position: relative;
+  z-index: 99;
+}
+
+.login__ham-menu-wrapper {
+  background-color: var(--clr-home-pg);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.8),
+    10px 10px 0 100vmax rgba(0, 0, 0, 0.6);
+  border-radius: 20px;
+  z-index: 9999;
+  transition: transform 1s;
+}
+
+.login__ham-menu {
+  padding: 2.5rem 2rem 2rem 2rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.login__ham-btn {
+  background-color: var(--clr-white);
+  cursor: pointer;
+  border: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+  padding: 0.2rem;
+  transition: background-color 0.3s;
+}
+
+.login__ham-btn:hover {
+  background-color: var(--clr-body-bg);
+}
+
+.login__ham-img {
+  width: 24px;
+}
+
+.login__mobile-nav-btn {
+  color: var(--clr-link);
+  background-color: var(--clr-white);
+  transition: background-color 0.3s;
+}
+
+.login__mobile-nav-btn:hover {
+  background-color: var(--clr-body-bg);
+}
+
+.login__form {
+  margin-top: 2.5rem;
+}
+
+.login__form-conatiner {
+  background-color: var(--clr-white);
+  /* background-color: #5b5959; */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  padding: 2rem;
+}
+
+.login__form-disable {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0)
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  z-index: 999;
+}
+
+.login__title {
+  font-size: var(--fs-450);
+  font-weight: var(--fw-500);
+  text-align: center;
+}
+
+.login__input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.login__password-input-wrapper {
+  position: relative;
+}
+
+.login__input-icon-wrapper {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 5%;
+}
+
+.login__input-icon-btn {
+  background-color: transparent;
+  cursor: pointer;
+  border: 0;
+  border-radius: 50%;
+  padding: 0.3rem;
+  transition: background-color 0.3s;
+}
+
+.login__input-icon-btn:hover {
+  background-color: var(--clr-body-bg);
+}
+
+.login__input-icon {
+  display: block;
+  width: 20px;
+}
+
+.login__label {
+  font-size: var(--fs-300);
+  font-weight: var(--fw-400);
+}
+
+.login__input {
+  font-size: var(--fs-300);
+  font-weight: var(--fw-400);
+  background-color: var(--clr-white);
+  border: 1px solid var(--clr-link);
+  border-radius: 20px;
+  padding: 1rem;
+}
+
+.login__input--width-padding {
+  width: 100%;
+  padding-inline-end: 4rem;
+}
+
+.login__error-msg-wrapper {
+  margin-top: 1rem;
+}
+
+.login__error-msg {
+  text-align: left;
+  font-size: var(--fs-300);
+  font-weight: var(--fw-400);
+  color: var(--clr-error-msg);
+}
+
+.login__bottom-wrapper {
+  text-align: center;
+}
+
+.login__btn {
+  width: 100%;
+  font-size: var(--fs-350);
+  font-weight: var(--fw-400);
+  margin-top: 1.5rem;
+}
+
+.login__btn:disabled {
+  background-color: var(--clr-btn-disable);
+  cursor: not-allowed;
+}
+
+.login__para-link-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.login__link {
+  color: var(--clr-link);
+  text-decoration: underline;
+}
+
+/* Sm-screens */
+/* @media (min-width: 425px) {
+  } */
+
+/* Md-screens */
+/* @media (min-width: 768px) {
+  } */
+
+/* Lg-screens */
+@media (min-width: 1024px) {
+  .login__title {
+    font-size: var(--fs-500);
+    font-weight: var(--fw-500);
+  }
+
+  .login__input-icon {
+    width: 24px;
+  }
+}
+
+/* Xl-screens */
+/* @media (min-width: 1440px) {
+  } */

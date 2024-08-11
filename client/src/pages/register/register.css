@@ -1,0 +1,234 @@
+.register {
+  max-width: 450px;
+}
+
+.register__header {
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.register__header-link {
+  color: var(--clr-link);
+}
+
+.register__header-title {
+  font-size: var(--fs-450);
+  font-weight: var(--fw-300);
+}
+
+.register__header-img {
+  width: 24px;
+}
+
+.register__header-btn {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  position: relative;
+  z-index: 99;
+}
+
+.register__ham-menu-wrapper {
+  background-color: var(--clr-home-pg);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.8),
+    10px 10px 0 100vmax rgba(0, 0, 0, 0.6);
+  border-radius: 20px;
+  z-index: 9999;
+  transition: transform 1s;
+}
+
+.register__ham-menu {
+  padding: 2.5rem 2rem 2rem 2rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.register__ham-btn {
+  background-color: var(--clr-white);
+  cursor: pointer;
+  border: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+  padding: 0.2rem;
+  transition: background-color 0.3s;
+}
+
+.register__ham-btn:hover {
+  background-color: var(--clr-body-bg);
+}
+
+.register__ham-img {
+  width: 24px;
+}
+
+.register__mobile-nav-btn {
+  color: var(--clr-link);
+  background-color: var(--clr-white);
+  transition: background-color 0.3s;
+}
+
+.register__mobile-nav-btn:hover {
+  background-color: var(--clr-body-bg);
+}
+
+.regsiter__form {
+  margin-top: 2.5rem;
+}
+
+.register__form-conatiner {
+  background-color: var(--clr-white);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  padding: 2rem;
+}
+
+.register__form-disable {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0)
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  z-index: 999;
+}
+
+.register__title {
+  font-size: var(--fs-450);
+  font-weight: var(--fw-500);
+  text-align: center;
+}
+
+.register__input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.register__password-input-wrapper {
+  position: relative;
+}
+
+.register__input-icon-wrapper {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 5%;
+}
+
+.register__input-icon-btn {
+  background-color: transparent;
+  cursor: pointer;
+  border: 0;
+  border-radius: 50%;
+  padding: 0.3rem;
+  transition: background-color 0.3s;
+}
+
+.register__input-icon-btn:hover {
+  background-color: var(--clr-body-bg);
+}
+
+.register__input-icon {
+  display: block;
+  width: 20px;
+}
+
+.register__label {
+  font-size: var(--fs-300);
+  font-weight: var(--fw-400);
+}
+
+.register__input {
+  font-size: var(--fs-300);
+  font-weight: var(--fw-400);
+  background-color: var(--clr-white);
+  border: 1px solid var(--clr-link);
+  border-radius: 20px;
+  padding: 1rem;
+}
+
+.register__input--width-padding {
+  width: 100%;
+  padding-inline-end: 4rem;
+}
+
+.register__error-msg-wrapper {
+  margin-top: 1rem;
+}
+
+.register__error-msg {
+  text-align: left;
+  font-size: var(--fs-300);
+  font-weight: var(--fw-400);
+  color: var(--clr-error-msg);
+}
+
+.register__bottom-wrapper {
+  text-align: center;
+}
+
+.register__btn {
+  width: 100%;
+  font-size: var(--fs-350);
+  font-weight: var(--fw-400);
+  margin-top: 1.5rem;
+}
+
+.register__btn:disabled {
+  background-color: var(--clr-btn-disable);
+  cursor: not-allowed;
+}
+
+.register__para-link-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.register__link {
+  color: var(--clr-link);
+  text-decoration: underline;
+}
+
+/* Sm-screens */
+/* @media (min-width: 425px) {
+} */
+
+/* Md-screens */
+/* @media (min-width: 768px) {
+} */
+
+/* Lg-screens */
+@media (min-width: 1024px) {
+  .register__title {
+    font-size: var(--fs-500);
+    font-weight: var(--fw-500);
+  }
+  .register__input-icon {
+    width: 24px;
+  }
+}
+
+/* Xl-screens */
+/* @media (min-width: 1440px) {
+} */

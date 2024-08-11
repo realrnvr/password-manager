@@ -1,0 +1,55 @@
+.about__header .header__about-btn {
+  display: none;
+}
+
+.about__content {
+  margin-top: 2rem;
+}
+
+.about__content > * + * {
+  margin-top: 1rem;
+}
+
+.about__text-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.about__title {
+  font-size: var(--fs-400);
+  font-weight: var(--fw-500);
+}
+
+.about__description {
+  font-size: var(--fs-300);
+  font-weight: var(--fw-400);
+  max-width: 50ch;
+}
+
+/* Sm-screens */
+/* @media (min-width: 425px) {
+} */
+
+/* Md-screens */
+/* @media (min-width: 768px) {
+} */
+
+/* Lg-screens */
+@media (min-width: 1024px) {
+  .about__content {
+    margin-top: 1rem;
+  }
+
+  .about__title {
+    font-size: var(--fs-500);
+  }
+
+  .about__description {
+    font-size: var(--fs-350);
+  }
+}
+
+/* Xl-screens */
+/* @media (min-width: 1440px) {
+} */

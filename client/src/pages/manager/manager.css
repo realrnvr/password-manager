@@ -1,0 +1,112 @@
+.manager__content {
+  max-width: 450px;
+  margin-inline: auto;
+  margin-top: 2rem;
+}
+
+.manager__search {
+  position: relative;
+}
+
+.manager__search-input {
+  width: 100%;
+  font-size: var(--fs-350);
+  padding-block: 1rem;
+  padding-inline-start: 4rem;
+  padding-inline-end: 2rem;
+  border: 0;
+  border-radius: 40px;
+}
+
+.manager__search-icon {
+  width: 30px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 5%;
+}
+
+.manager__add-wrapper {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.manager__add-btn {
+  background-color: var(--clr-white);
+  border: 0;
+  border-radius: 50%;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.manager__add-btn:hover {
+  background-color: var(--clr-home-pg);
+}
+
+.manager__add-icon {
+  width: 30px;
+}
+
+.manager__add-btn:hover .manager__add-icon {
+  filter: invert(100%);
+}
+
+.manager__add-description {
+  font-size: var(--fs-350);
+}
+
+.manager__password-container {
+  margin-top: 1.5rem;
+  overflow-y: scroll;
+  max-height: 400px;
+  padding-right: 0.5rem;
+}
+
+.manager__password-container::-webkit-scrollbar {
+  width: 5px;
+}
+
+.manager__password-container::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 0 rgba(0, 0, 0, 1);
+}
+
+.manager__password-container::-webkit-scrollbar-thumb {
+  background-color: var(--clr-link);
+  outline: 1px solid var(--clr-link);
+  border-radius: 40px;
+}
+
+.manager__password-container > * + * {
+  margin-top: 0.5rem;
+}
+
+.manager__password-btn {
+  width: 100%;
+  background-color: transparent;
+  border: 0;
+}
+
+.manager__empty {
+  font-size: var(--fs-300);
+  font-weight: var(--fs-400);
+  text-align: center;
+}
+
+/* Sm-screens */
+/* @media (min-width: 425px) {
+} */
+
+/* Md-screens */
+/* @media (min-width: 768px) {
+} */
+
+/* Lg-screens */
+/* @media (min-width: 1024px) {
+} */
+
+/* Xl-screens */
+/* @media (min-width: 1440px) {
+} */
