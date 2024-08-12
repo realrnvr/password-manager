@@ -17,14 +17,9 @@ import managerRouter from "./routes/manager.js";
 
 import auth from "./middleware/authorization.js";
 
-const corsOptions = {
-  origin: process.env.CLIENT_URL,
-  credentials: true,
-};
+app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
 
-app.use(cors(corsOptions));
-
-app.options("*", cors(corsOptions));
+app.options("*", cors({ origin: process.env.CLIENT_URL, credentials: true }));
 
 app.use(express.json());
 
