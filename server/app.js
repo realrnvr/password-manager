@@ -19,8 +19,6 @@ import auth from "./middleware/authorization.js";
 
 app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
 
-app.options("*", cors({ origin: process.env.CLIENT_URL, credentials: true }));
-
 app.use(express.json());
 
 app.get("/", (req, res) => {
