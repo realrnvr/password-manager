@@ -170,7 +170,6 @@ const Create = () => {
                 }}
               />
             </div>
-
             <div className="create__input-wrapper">
               <label htmlFor="username">Username</label>
               <input

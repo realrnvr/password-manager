@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Loader from "../../components/loader/Loader";
 import axios from "axios";
 import "./login.css";
 
@@ -12,6 +13,7 @@ const login = () => {
   const [errorMsg, setErrorMsg] = useState("");
   const [isDisable, setIsDisable] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
+  const [loader, setLoader] = useState(false);
 
   const handleShowPassword = () => {
     setShowPassword((prevShowPassword) => {
@@ -54,21 +56,24 @@ const login = () => {
 
   const loginUser = async () => {
     try {
+      setLoader(true);
       const response = await axios.post(
         `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/v1/auth/login`,
         formData
       );
+      setLoader(false);
       const { token, user } = response.data;
       localStorage.setItem("token", JSON.stringify(token));
       localStorage.setItem("user", JSON.stringify(user));
       navigate("/manager");
     } catch (error) {
+      setLoader(false);
       localStorage.removeItem("token");
       localStorage.removeItem("user");
       setErrorMsg(error.response.data.msg);
       setTimeout(() => {
         setErrorMsg("");
-      }, 5000);
+      }, 3000);
     }
   };
 
@@ -180,13 +185,19 @@ const login = () => {
             </div>
           )}
           <div className="login__bottom-wrapper">
-            <button
-              className="login__btn | btn btn--clr-bg"
-              type="sumbit"
-              disabled={isDisable}
-            >
-              Log In
-            </button>
+            {!loader ? (
+              <button
+                className="login__btn | btn btn--clr-bg"
+                type="sumbit"
+                disabled={isDisable}
+              >
+                Log In
+              </button>
+            ) : (
+              <div className="login__loader-wrapper">
+                <Loader />
+              </div>
+            )}
             <div className="login__para-link-wrapper">
               <p className="login__para-link">Don't have an account yet?</p>
               <a className="login__link" href="/register">

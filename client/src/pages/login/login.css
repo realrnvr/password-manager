@@ -89,7 +89,6 @@
 
 .login__form-conatiner {
   background-color: var(--clr-white);
-  /* background-color: #5b5959; */
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   border-radius: 20px;
   padding: 2rem;
@@ -209,6 +208,19 @@
 .login__link {
   color: var(--clr-link);
   text-decoration: underline;
+}
+
+.login__loader-wrapper {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.login__loader-wrapper .loader .loader__element {
+  padding: 1rem;
+  border-bottom-color: var(--clr-body-bg);
+  border-right-color: var(--clr-body-bg);
+  border-left-color: var(--clr-body-bg);
 }
 
 /* Sm-screens */

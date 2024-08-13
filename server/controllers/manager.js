@@ -1,11 +1,12 @@
 import Manager from "../models/manager.js";
 import notFoundError from "../errors/notFoundError.js";
 import badRequestError from "../errors/badRequestError.js";
+import crypto from "crypto";
 import { StatusCodes } from "http-status-codes";
 
 export const getAllPasswords = async (req, res) => {
   const { userId } = req.user;
-  const manager = await Manager.find({ createdBy: userId }).sort("createdAt");
+  let manager = await Manager.find({ createdBy: userId }).sort("createdAt");
   res.status(StatusCodes.OK).json({ manager: manager, length: manager.length });
 };
 
@@ -19,6 +20,8 @@ export const getPassword = async (req, res) => {
   if (!manager) {
     throw new notFoundError(`There is no such password with id: ${passwordId}`);
   }
+
+  manager.password = manager.decryptPassword(manager.password);
 
   res.status(StatusCodes.OK).json({ manager });
 };
@@ -38,6 +41,18 @@ export const updatePassword = async (req, res) => {
 
   if (!site || !username || !password) {
     throw new badRequestError("Please provide Credentails!");
+  }
+
+  if (password) {
+    const key = Buffer.from(process.env.ENCRYPTION_KEY, "base64");
+    const algorithm = "aes-256-cbc";
+    const iv = crypto.randomBytes(16);
+    const cipher = crypto.createCipheriv(algorithm, key, iv);
+
+    let encryptedPassword = cipher.update(password, "utf-8", "hex");
+    encryptedPassword += cipher.final("hex");
+
+    req.body.password = iv.toString("hex") + ":" + encryptedPassword;
   }
 
   const manager = await Manager.findOneAndUpdate(

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./register.css";
+import Loader from "../../components/loader/Loader";
 
 const Register = () => {
   const [toggleHam, setToggleHam] = useState(false);
@@ -13,6 +14,7 @@ const Register = () => {
   const [errorMsg, setErrorMsg] = useState("");
   const [isDisable, setIsDisable] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
+  const [loader, setLoader] = useState(false);
 
   const handleShowPassword = () => {
     setShowPassword((prevShowPassword) => {
@@ -55,18 +57,21 @@ const Register = () => {
 
   const regsiterUser = async () => {
     try {
+      setLoader(true);
       await axios.post(
         `${
           import.meta.env.VITE_REACT_APP_BACKEND_BASEURL
         }/api/v1/auth/register`,
         formData
       );
+      setLoader(false);
       navigate("/login");
     } catch (error) {
+      setLoader(false);
       setErrorMsg(error.response.data.msg);
       setTimeout(() => {
         setErrorMsg("");
-      }, 5000);
+      }, 3000);
     }
   };
 
@@ -191,13 +196,21 @@ const Register = () => {
             </div>
           )}
           <div className="register__bottom-wrapper">
-            <button
-              className="register__btn | btn btn--clr-bg"
-              type="sumbit"
-              disabled={isDisable}
-            >
-              Create Account
-            </button>
+            <div className="register__loader-wrapper">
+              {!loader ? (
+                <button
+                  className="register__btn | btn btn--clr-bg"
+                  type="sumbit"
+                  disabled={isDisable}
+                >
+                  Create Account
+                </button>
+              ) : (
+                <div className="register__btn-loader-wrapper">
+                  <Loader />
+                </div>
+              )}
+            </div>
             <div className="register__para-link-wrapper">
               <p className="register__para-link">Already Have An Account? </p>
               <a className="register__link" href="/login">

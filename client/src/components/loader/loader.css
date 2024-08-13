@@ -1,0 +1,19 @@
+.loader__element {
+  z-index: 99999;
+  padding: 1.5rem;
+  width: 50px;
+  aspect-ratio: 1 / 1;
+  border: 8px solid var(--clr-white);
+  border-top-color: var(--clr-home-pg);
+  border-radius: 50%;
+  animation: loading 1s ease infinite;
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}

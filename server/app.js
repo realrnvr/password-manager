@@ -17,7 +17,12 @@ import managerRouter from "./routes/manager.js";
 
 import auth from "./middleware/authorization.js";
 
-app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
+app.use(
+  cors({
+    origin: process.env.CLIENT_URL,
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 
@@ -30,7 +35,7 @@ app.get("/api/v1/password", async (req, res) => {
     "https://api.api-ninjas.com/v1/passwordgenerator?length=16",
     {
       headers: {
-        "X-Api-Key": "xPrPA7wQGsOtB0PcqmDZBg==X5Gn3pYyjufZrUwi",
+        "X-Api-Key": process.env.X_API_KEY,
       },
     }
   );

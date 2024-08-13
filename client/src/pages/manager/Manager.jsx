@@ -4,10 +4,12 @@ import Password from "../../components/password/Password";
 import HeaderTwo from "../../components/headerTwo/HeaderTwo";
 import axios from "axios";
 import "./manager.css";
+import Loader from "../../components/loader/Loader";
 
 const Manager = () => {
   const [allPasswords, setAllPasswords] = useState([]);
   const [search, setSearch] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const filteredItems = allPasswords.filter((item) =>
@@ -29,6 +31,7 @@ const Manager = () => {
 
   const fetchPasswordData = async () => {
     try {
+      setLoading(true);
       const token = JSON.parse(localStorage.getItem("token"));
       const {
         data: { manager },
@@ -40,8 +43,10 @@ const Manager = () => {
           },
         }
       );
+      setLoading(false);
       setAllPasswords(manager);
     } catch (error) {
+      setLoading(false);
       console.log(error);
     }
   };
@@ -72,24 +77,32 @@ const Manager = () => {
           </button>
           <p className="manager__add-description">Add password</p>
         </div>
-        <div className="manager__password-container">
-          {filteredItems.length > 0 ? (
-            filteredItems.map((val, index) => {
-              const { _id: passwordId, site } = val;
-              return (
-                <button
-                  key={index}
-                  className="manager__password-btn"
-                  onClick={() => handleSite(passwordId)}
-                >
-                  <Password site={site} />
-                </button>
-              );
-            })
-          ) : (
-            <p className="manager__empty">Create one!</p>
-          )}
-        </div>
+        {!loading ? (
+          <>
+            <div className="manager__password-container">
+              {filteredItems.length > 0 ? (
+                filteredItems.map((val, index) => {
+                  const { _id: passwordId, site } = val;
+                  return (
+                    <button
+                      key={index}
+                      className="manager__password-btn"
+                      onClick={() => handleSite(passwordId)}
+                    >
+                      <Password site={site} />
+                    </button>
+                  );
+                })
+              ) : (
+                <p className="manager__empty">Create one!</p>
+              )}
+            </div>
+          </>
+        ) : (
+          <div className="manager__loader-wrapper">
+            <Loader />
+          </div>
+        )}
       </div>
     </section>
   );

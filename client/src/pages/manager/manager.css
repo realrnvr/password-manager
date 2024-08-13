@@ -95,6 +95,12 @@
   text-align: center;
 }
 
+.manager__loader-wrapper {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
 /* Sm-screens */
 /* @media (min-width: 425px) {
 } */

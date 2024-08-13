@@ -32,12 +32,18 @@
 }
 
 .header-two__account-username {
+  max-width: 10ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
   line-height: 0.8;
   font-size: var(--fs-300);
   font-weight: var(--fw-400);
 }
 
 .header-two__account-email {
+  max-width: 12ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-size: var(--fs-300);
   font-weight: var(--fw-300);
 }

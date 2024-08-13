@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import HeaderTwo from "../../components/headerTwo/HeaderTwo";
+import Loader from "../../components/loader/Loader";
 import axios from "axios";
 import "./site.css";
 
@@ -16,10 +17,12 @@ const Site = () => {
     password: "",
     note: "",
   });
+  const [oldPassword, setOldPassword] = useState("");
   const [dummyPassData, setDummyPassData] = useState({});
   const [genPass, setGenPass] = useState("");
   const [isGenPass, setIsGenPass] = useState(false);
   const [isload, setIsLoad] = useState(false);
+  const [loader, setLoader] = useState(false);
 
   const handleIsGenPass = () => {
     setIsGenPass((prevIsGenPass) => {
@@ -30,7 +33,6 @@ const Site = () => {
   const handleIsEdit = () => {
     return JSON.stringify(dummyPassData) !== JSON.stringify(passData);
   };
-  console.log(handleIsEdit());
 
   const handleCopy = async (toCopy) => {
     try {
@@ -77,6 +79,7 @@ const Site = () => {
       const { random_password: newPassword } = response.data;
       setGenPass(newPassword);
     } catch (error) {
+      setIsLoad(false);
       setMsg("Something went wrong.");
       setTimeout(() => {
         setMsg("");
@@ -86,6 +89,7 @@ const Site = () => {
 
   const fetchPassData = async () => {
     try {
+      setLoader(true);
       const token = JSON.parse(localStorage.getItem("token"));
       const response = await axios.get(
         `${
@@ -97,6 +101,7 @@ const Site = () => {
           },
         }
       );
+      setLoader(false);
       const {
         data: {
           manager: { site, username, password, note },
@@ -120,6 +125,7 @@ const Site = () => {
         };
       });
     } catch (error) {
+      setLoader(false);
       setMsg("Something went wrong.");
       setTimeout(() => {
         setMsg("");
@@ -160,6 +166,10 @@ const Site = () => {
   };
 
   const handlePasswordGenerator = () => {
+    if (isGenPass) {
+      setIsGenPass(false);
+      handleUseGenPass();
+    }
     fetchRandomPassword();
   };
 
@@ -187,6 +197,7 @@ const Site = () => {
 
   const handleUseGenPass = () => {
     if (!isGenPass) {
+      setOldPassword(passData.password);
       setPassData((prevPassData) => {
         return {
           ...prevPassData,
@@ -194,7 +205,12 @@ const Site = () => {
         };
       });
     } else {
-      fetchPassData();
+      setPassData((prevPassData) => {
+        return {
+          ...prevPassData,
+          password: oldPassword,
+        };
+      });
     }
   };
 
@@ -218,121 +234,141 @@ const Site = () => {
               <img className="site__arrow-icon" src="/leftArrow.svg" alt="" />
             </button>
           </div>
-          <div className="site__title">
-            <img className="site__website-icon" src="/website.svg" alt="" />
-            <h4 className="site__name">{passData.site}</h4>
-          </div>
-          <div className="site__input-container">
-            <div className="site__input-wrapper">
-              <input
-                className="site__input site__input--pd-r-4rem"
-                type="text"
-                placeholder="username"
-                name="username"
-                value={passData.username}
-                onChange={handlePassData}
-              />
-              <button
-                className="site__icon-btn site__icon-btn--disable"
-                type="button"
-                onClick={() => handleCopy(passData.username)}
-                disabled={!passData.username}
-              >
-                <img className="site__copy-icon" src="/copy.svg" alt="" />
-              </button>
-            </div>
-            <div className="site__input-wrapper">
-              <input
-                className="site__input site__input--pd-r-9rem"
-                type={showPassword ? "text" : "password"}
-                placeholder="password"
-                name="password"
-                value={passData.password}
-                onChange={handlePassData}
-              />
-              <button
-                className="site__icon-btn site__icon-btn--right-15"
-                type="button"
-                onClick={handleShowPassword}
-              >
-                {showPassword ? (
-                  <img className="site__eye-icon" src="/eyeOpen.svg" alt="" />
-                ) : (
-                  <img className="site__eye-icon" src="/eyeClose.svg" alt="" />
+          <div className="site__loader-wrapper">
+            {!loader ? (
+              <>
+                <div className="site__title">
+                  <img
+                    className="site__website-icon"
+                    src="/website.svg"
+                    alt=""
+                  />
+                  <h4 className="site__name">{passData.site}</h4>
+                </div>
+                <div className="site__input-container">
+                  <div className="site__input-wrapper">
+                    <input
+                      className="site__input site__input--pd-r-4rem"
+                      type="text"
+                      placeholder="username"
+                      name="username"
+                      value={passData.username}
+                      onChange={handlePassData}
+                    />
+                    <button
+                      className="site__icon-btn site__icon-btn--disable"
+                      type="button"
+                      onClick={() => handleCopy(passData.username)}
+                      disabled={!passData.username}
+                    >
+                      <img className="site__copy-icon" src="/copy.svg" alt="" />
+                    </button>
+                  </div>
+                  <div className="site__input-wrapper">
+                    <input
+                      className="site__input site__input--pd-r-9rem"
+                      type={showPassword ? "text" : "password"}
+                      placeholder="password"
+                      name="password"
+                      value={passData.password}
+                      onChange={handlePassData}
+                    />
+                    <button
+                      className="site__icon-btn site__icon-btn--right-15"
+                      type="button"
+                      onClick={handleShowPassword}
+                    >
+                      {showPassword ? (
+                        <img
+                          className="site__eye-icon"
+                          src="/eyeOpen.svg"
+                          alt=""
+                        />
+                      ) : (
+                        <img
+                          className="site__eye-icon"
+                          src="/eyeClose.svg"
+                          alt=""
+                        />
+                      )}
+                    </button>
+                    <button
+                      className="site__icon-btn site__icon-btn--disable"
+                      type="button"
+                      onClick={() => handleCopy(passData.password)}
+                      disabled={!passData.password}
+                    >
+                      <img className="site__copy-icon" src="/copy.svg" alt="" />
+                    </button>
+                  </div>
+                  <div className="site__input-wrapper">
+                    <textarea
+                      className="site__text-area"
+                      placeholder="Add note"
+                      name="note"
+                      value={passData.note}
+                      onChange={handlePassData}
+                    />
+                  </div>
+                  <div className="site__input-wrapper">
+                    <input
+                      className="site__input site__input--border-radius"
+                      type="text"
+                      defaultValue={genPass}
+                      placeholder="Generate Password"
+                      readOnly
+                    />
+                    <button
+                      className="site__icon-btn site__icon-btn--right-15"
+                      type="button"
+                      onClick={handlePasswordGenerator}
+                    >
+                      <img className="site__key-icon" src="/key.svg" alt="" />
+                    </button>
+                    <button
+                      className="site__icon-btn site__icon-btn--disable"
+                      type="button"
+                      onClick={() => {
+                        setShowPassword(true);
+                        handleIsGenPass();
+                        handleUseGenPass();
+                      }}
+                      disabled={!genPass || isload}
+                    >
+                      {isGenPass ? (
+                        <img className="site__use-icon" src="/not.svg" alt="" />
+                      ) : (
+                        <img className="site__use-icon" src="/use.svg" alt="" />
+                      )}
+                    </button>
+                    {isload && <div className="input-loader"></div>}
+                  </div>
+                </div>
+                {msg && (
+                  <div className="site__msg-container">
+                    <p className="site__msg">{msg}</p>
+                  </div>
                 )}
-              </button>
-              <button
-                className="site__icon-btn site__icon-btn--disable"
-                type="button"
-                onClick={() => handleCopy(passData.password)}
-                disabled={!passData.password}
-              >
-                <img className="site__copy-icon" src="/copy.svg" alt="" />
-              </button>
-            </div>
-            <div className="site__input-wrapper">
-              <textarea
-                className="site__text-area"
-                placeholder="Add note"
-                name="note"
-                value={passData.note}
-                onChange={handlePassData}
-              />
-            </div>
-            <div className="site__input-wrapper">
-              <input
-                className="site__input site__input--border-radius"
-                type="text"
-                defaultValue={genPass}
-                placeholder="Generate Password"
-                readOnly
-              />
-              <button
-                className="site__icon-btn site__icon-btn--right-15"
-                type="button"
-                onClick={handlePasswordGenerator}
-              >
-                <img className="site__key-icon" src="/key.svg" alt="" />
-              </button>
-              <button
-                className="site__icon-btn site__icon-btn--disable"
-                type="button"
-                onClick={() => {
-                  setShowPassword(true);
-                  handleIsGenPass();
-                  handleUseGenPass();
-                }}
-                disabled={!genPass}
-              >
-                {isGenPass ? (
-                  <img className="site__use-icon" src="/not.svg" alt="" />
-                ) : (
-                  <img className="site__use-icon" src="/use.svg" alt="" />
-                )}
-              </button>
-              {isload && <div className="input-loader"></div>}
-            </div>
-          </div>
-          {msg && (
-            <div className="site__msg-container">
-              <p className="site__msg">{msg}</p>
-            </div>
-          )}
-          <div className="site__btn-wrapper">
-            <button
-              className="site__btn site__btn--disable | btn btn--clr-bg"
-              type="submit"
-              disabled={!handleIsEdit()}
-            >
-              Edit
-            </button>
-            <button
-              className="site__btn | btn btn--clr-bg"
-              type="button"
-              onClick={deletePassData}
-            >
-              Delete
-            </button>
+                <div className="site__btn-wrapper">
+                  <button
+                    className="site__btn site__btn--disable | btn btn--clr-bg"
+                    type="submit"
+                    disabled={!handleIsEdit()}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className="site__btn | btn btn--clr-bg"
+                    type="button"
+                    onClick={deletePassData}
+                  >
+                    Delete
+                  </button>
+                </div>
+              </>
+            ) : (
+              <Loader />
+            )}
           </div>
         </div>
       </form>

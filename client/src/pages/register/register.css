@@ -189,7 +189,7 @@
   width: 100%;
   font-size: var(--fs-350);
   font-weight: var(--fw-400);
-  margin-top: 1.5rem;
+  margin-top: 1.3rem;
 }
 
 .register__btn:disabled {
@@ -208,6 +208,19 @@
 .register__link {
   color: var(--clr-link);
   text-decoration: underline;
+}
+
+.register__btn-loader-wrapper {
+  margin-top: 1.3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.register__btn-loader-wrapper .loader .loader__element {
+  padding: 1rem;
+  border-bottom-color: var(--clr-body-bg);
+  border-left-color: var(--clr-body-bg);
+  border-right-color: var(--clr-body-bg);
 }
 
 /* Sm-screens */

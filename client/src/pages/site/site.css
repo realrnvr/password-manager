@@ -15,6 +15,9 @@
 .site__name {
   font-size: var(--fs-350);
   font-weight: var(--fw-500);
+  max-width: 25ch;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
 }
 
 .site__arrow-btn {
@@ -163,4 +166,10 @@
 .site__btn--disable:disabled {
   background-color: var(--clr-btn-disable);
   cursor: not-allowed;
+}
+
+.site__loader-wrapper .loader {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
 }
