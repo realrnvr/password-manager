@@ -144,7 +144,7 @@ const Create = () => {
               <button
                 type="submit"
                 className="create__btn | btn--clr-bg"
-                disabled={isDisable}
+                disabled={isDisable || isLoad}
               >
                 save
               </button>
@@ -163,7 +163,7 @@ const Create = () => {
                 style={
                   checkSite(passwordData.site)
                     ? {}
-                    : { border: "1px solid red" }
+                    : { outline: "2px solid #b91c1c" }
                 }
                 onBlur={() => {
                   createURL(passwordData.site);
