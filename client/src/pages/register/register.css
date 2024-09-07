@@ -20,6 +20,7 @@
 
 .register__header-img {
   width: 24px;
+  aspect-ratio: 1 / 1;
 }
 
 .register__header-btn {
@@ -71,6 +72,7 @@
 
 .register__ham-img {
   width: 24px;
+  aspect-ratio: 1 / 1;
 }
 
 .register__mobile-nav-btn {
@@ -149,6 +151,7 @@
 .register__input-icon {
   display: block;
   width: 20px;
+  aspect-ratio: 1 / 1;
 }
 
 .register__label {

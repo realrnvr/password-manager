@@ -1,11 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./resets.css";
-import "./utils.css";
-import "./index.css";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import App from "./App.jsx";
+import Home from "./pages/home/Home.jsx";
 import Register from "./pages/register/Register.jsx";
 import Login from "./pages/login/Login.jsx";
 import NotFound from "./pages/notFound/NotFound.jsx";
@@ -14,8 +11,12 @@ import Create from "./pages/create/Create.jsx";
 import Site from "./pages/site/Site.jsx";
 import About from "./pages/about/About.jsx";
 
+import "./resets.css";
+import "./utils.css";
+import "./index.css";
+
 const router = createBrowserRouter([
-  { path: "/", element: <App />, errorElement: <NotFound /> },
+  { path: "/", element: <Home />, errorElement: <NotFound /> },
   { path: "/register", element: <Register /> },
   { path: "/login", element: <Login /> },
   {

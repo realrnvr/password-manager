@@ -34,6 +34,7 @@
 
 .header__hamburger {
   width: 24px;
+  aspect-ratio: 1 / 1;
 }
 
 .header__login-btn {
