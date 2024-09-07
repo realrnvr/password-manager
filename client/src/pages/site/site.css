@@ -173,3 +173,21 @@
   display: flex;
   justify-content: center;
 }
+
+/* Xs */
+/* @media (min-width: 475px) {} */
+
+/* Sm */
+/* @media (min-width: 640px) {} */
+
+/* Md */
+/* @media (min-width: 768px) {} */
+
+/* Lg */
+/* @media (min-width: 1024px) {} */
+
+/* Xl */
+/* @media (min-width: 1280px) {} */
+
+/* 2Xl */
+/* @media (min-width: 1440px) {} */

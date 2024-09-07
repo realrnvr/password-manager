@@ -133,15 +133,16 @@
   z-index: 999;
 }
 
-/* Sm-screens */
-/* @media (min-width: 425px) {
-} */
+/* Xs */
+/* @media (min-width: 475px) {} */
 
-/* Md-screens */
-/* @media (min-width: 768px) {
-} */
+/* Sm */
+/* @media (min-width: 640px) {} */
 
-/* Lg-screens */
+/* Md */
+/* @media (min-width: 768px) {} */
+
+/* Lg */
 @media (min-width: 1024px) {
   .header-two__account {
     padding: 1rem 2rem;
@@ -153,6 +154,8 @@
   }
 }
 
-/* Xl-screens */
-/* @media (min-width: 1440px) {
-} */
+/* Xl */
+/* @media (min-width: 1280px) {} */
+
+/* 2Xl */
+/* @media (min-width: 1440px) {} */

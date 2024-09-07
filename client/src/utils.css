@@ -1,0 +1,117 @@
+/* Xs */
+/* @media (min-width: 475px) {} */
+
+/* Sm */
+/* @media (min-width: 640px) {} */
+
+/* Md */
+/* @media (min-width: 768px) {} */
+
+/* Lg */
+/* @media (min-width: 1024px) {} */
+
+/* Xl */
+/* @media (min-width: 1280px) {} */
+
+/* 2Xl */
+/* @media (min-width: 1440px) {} */
+
+.container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+.btn {
+  border: none;
+  border-radius: 0.5em;
+  padding: 1rem 2rem;
+  cursor: pointer;
+}
+
+.btn--border {
+  border: 2px solid var(--clr-link);
+}
+
+.btn--clr-bg {
+  color: #fff;
+  background-color: var(--clr-home-pg);
+  transition: background-color 0.5s;
+}
+
+.btn--clr-bg:hover {
+  background-color: var(--clr-home-pg-light);
+}
+
+.lg-screen {
+  display: none;
+}
+
+.input-loader {
+  position: absolute;
+  bottom: 0;
+  margin-top: 0.2rem;
+  padding: 0.1rem;
+  background-color: var(--clr-home-pg);
+  animation: loader 2s infinite ease;
+}
+
+@keyframes loader {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+/* Xs */
+@media (min-width: 475px) {
+  .container {
+    max-width: 475px;
+  }
+}
+
+/* Sm */
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+/* Md */
+@media (min-width: 768px) {
+  .container {
+    max-width: 786px;
+  }
+}
+
+/* Lg */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+
+  .sm-screen {
+    display: none;
+  }
+
+  .lg-screen {
+    display: block;
+  }
+}
+
+/* Xl */
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+/* 2Xl */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1440px;
+  }
+}

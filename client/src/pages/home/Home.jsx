@@ -19,7 +19,7 @@ const Home = () => {
             </h1>
             <img
               className="home__logo-img | sm-screen"
-              src="/passLogo.png"
+              src="/passLogo.webp"
               alt="Logo"
             />
             <p className="home__description">
@@ -35,10 +35,10 @@ const Home = () => {
               {user ? "Manager" : "Register now"}
             </Link>
           </div>
-          <div>
+          <div className="home__logo-img-wrapper">
             <img
               className="home__logo-img | lg-screen"
-              src="/passLogo.png"
+              src="/passLogo.webp"
               alt="Logo"
             />
           </div>

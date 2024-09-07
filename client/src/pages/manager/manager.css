@@ -101,18 +101,20 @@
   justify-content: center;
 }
 
-/* Sm-screens */
-/* @media (min-width: 425px) {
-} */
+/* Xs */
+/* @media (min-width: 475px) {} */
 
-/* Md-screens */
-/* @media (min-width: 768px) {
-} */
+/* Sm */
+/* @media (min-width: 640px) {} */
 
-/* Lg-screens */
-/* @media (min-width: 1024px) {
-} */
+/* Md */
+/* @media (min-width: 768px) {} */
 
-/* Xl-screens */
-/* @media (min-width: 1440px) {
-} */
+/* Lg */
+/* @media (min-width: 1024px) {} */
+
+/* Xl */
+/* @media (min-width: 1280px) {} */
+
+/* 2Xl */
+/* @media (min-width: 1440px) {} */

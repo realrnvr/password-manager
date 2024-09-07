@@ -5,16 +5,16 @@ const managerSchema = new mongoose.Schema(
   {
     site: {
       type: String,
-      required: [true, "pls provide a Site"],
+      required: [true, "Please provide a Site"],
     },
     username: {
       type: String,
-      required: [true, "pls provide a username"],
+      required: [true, "Please provide a username"],
       maxLength: 100,
     },
     password: {
       type: String,
-      required: [true, "pls provide a password"],
+      required: [true, "Please provide a password"],
       minLength: 6,
     },
     note: {
@@ -24,7 +24,7 @@ const managerSchema = new mongoose.Schema(
     createdBy: {
       type: mongoose.Types.ObjectId,
       ref: "User",
-      required: [true, "pls provide a User"],
+      required: [true, "Please provide a User"],
     },
   },
   { timestamps: true }
