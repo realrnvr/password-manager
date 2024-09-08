@@ -34,7 +34,7 @@
 }
 
 .btn--clr-bg {
-  color: #fff;
+  color: var(--clr-white);
   background-color: var(--clr-home-pg);
   transition: background-color 0.5s;
 }

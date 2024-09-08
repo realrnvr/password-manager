@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import Password from "../../components/password/Password";
 import HeaderTwo from "../../components/headerTwo/HeaderTwo";
 import axios from "axios";
-import "./manager.css";
 import Loader from "../../components/loader/Loader";
+import "./manager.css";
 
 const Manager = () => {
   const [allPasswords, setAllPasswords] = useState([]);

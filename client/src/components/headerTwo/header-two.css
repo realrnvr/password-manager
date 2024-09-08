@@ -2,7 +2,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* position: relative; */
   padding-top: 1.5rem;
 }
 
@@ -50,6 +49,7 @@
 
 .header-two__user-icon {
   width: 27px;
+  aspect-ratio: 1 / 1;
   filter: invert(100%);
 }
 
@@ -61,6 +61,7 @@
 
 .header-two__drop-down-icon {
   width: 25px;
+  aspect-ratio: 1 / 1;
 }
 
 .header-two__pop-up {
@@ -114,6 +115,7 @@
 }
 .header-two__close-icon {
   width: 21px;
+  aspect-ratio: 1 / 1;
 }
 
 .header-two__disable {

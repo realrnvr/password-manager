@@ -29,7 +29,7 @@ const Home = () => {
               click.
             </p>
             <Link
-              className="home__btn | btn btn--clr-bg"
+              className="home__btn btn--clr-bg | btn"
               to={user ? "/manager" : "/register"}
             >
               {user ? "Manager" : "Register now"}

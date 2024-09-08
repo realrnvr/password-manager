@@ -43,7 +43,7 @@
 
 :root {
   /* Font-family */
-  --ff-primary: "Poppins", sans-serif;
+  --ff-primary: "Poppins", Arial, sans-serif;
   --ff-title: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 
@@ -117,6 +117,7 @@ video {
 a {
   display: block;
   text-decoration: none;
+  font-family: var(--ff-primary);
 }
 
 strong {

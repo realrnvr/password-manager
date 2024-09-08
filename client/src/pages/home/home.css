@@ -29,7 +29,7 @@
 .home__btn {
   width: 100%;
   text-align: center;
-  font-size: var(--fs-350);
+  font-size: var(--fs-300);
   font-weight: var(--fw-300);
   margin-top: 1rem;
 }
@@ -71,7 +71,7 @@
   }
 
   .home__btn {
-    font-size: var(--fs-400);
+    font-size: var(--fs-350);
     margin-top: 0;
     width: fit-content;
   }

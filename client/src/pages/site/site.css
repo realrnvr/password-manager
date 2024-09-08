@@ -10,6 +10,7 @@
 
 .site__website-icon {
   width: 30px;
+  aspect-ratio: 1 / 1;
 }
 
 .site__name {
@@ -35,6 +36,7 @@
 
 .site__arrow-icon {
   width: 30px;
+  aspect-ratio: 1 / 1;
 }
 
 .site__arrow-btn:hover .site__arrow-icon {
@@ -69,6 +71,7 @@
 
 .site__copy-icon {
   width: 21px;
+  aspect-ratio: 1 / 1;
 }
 
 .site__icon-btn--disable:disabled .site__copy-icon {
@@ -76,16 +79,19 @@
 }
 
 .site__eye-icon {
-  filter: grayscale(100%);
   width: 21px;
+  aspect-ratio: 1 / 1;
+  filter: grayscale(100%);
 }
 
 .site__key-icon {
   width: 21px;
+  aspect-ratio: 1 / 1;
 }
 
 .site__use-icon {
   width: 21px;
+  aspect-ratio: 1 / 1;
 }
 
 .site__icon-btn--disable:disabled .site__use-icon {

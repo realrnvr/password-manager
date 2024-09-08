@@ -20,6 +20,7 @@
 
 .manager__search-icon {
   width: 30px;
+  aspect-ratio: 1 / 1;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -48,6 +49,7 @@
 
 .manager__add-icon {
   width: 30px;
+  aspect-ratio: 1 / 1;
 }
 
 .manager__add-btn:hover .manager__add-icon {
