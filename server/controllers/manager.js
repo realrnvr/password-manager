@@ -84,6 +84,7 @@ export const deletePassword = async (req, res) => {
     _id: passwordId,
     createdBy: userId,
   });
+  
   if (!manager) {
     throw new notFoundError(`There is no such password with id: ${passwordId}`);
   }
